@@ -1,0 +1,15 @@
+.pricing-mode .selected .btn-select {
+  background: #7b61ff;
+  color: white;
+}
+
+.pricing-mode > div {
+  transition: 0.3s all ease-in-out;
+}
+
+.btn-signup {
+  background: linear-gradient(98.79deg, #9b53e0 20.34%, #8551e6 77.89%);
+  border-radius: 154.863px;
+  font-size: 18px;
+  font-family: "PoppinsFonts";
+}

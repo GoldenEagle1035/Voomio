@@ -1,13 +1,22 @@
 import React, { useRef, useState } from "react";
-// import Wave from "react-wavify";
+import Wave from "react-wavify";
 import "./UploadNft.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import StayLoop from "./StayLoop";
 
 const UploadNft = () => {
   // upload image
   const [selectedImage, setSelectedImage] = useState();
+  const [isUploading, setIsUploading] = useState(false);
+  const [isUploadFinished, setIsUploadFinished] = useState(false);
   //   new upload
   function handleFile(files) {
+    setIsUploading(true);
+    setIsUploadFinished(false);
+    setTimeout(() => {
+      setIsUploading(false);
+      setIsUploadFinished(true);
+    }, 2000);
     console.log("Number of files: " + files.length);
   }
   const [dragActive, setDragActive] = useState(false);
@@ -106,7 +115,7 @@ const UploadNft = () => {
 
   return (
     <>
-      <div className="container max-w-7xl mx-auto px-8 md:px-20 pt-20 min-h-screen">
+      <div className="upload-nft-container container max-w-7xl mx-auto px-8 md:px-20 pt-20 min-h-screen">
         <div className=" text-5xl font-bold text-[#222222]">NFT Generator</div>
         <div className="flex items-center justify-between neueHaasGrotesk">
           <div>
@@ -132,175 +141,228 @@ const UploadNft = () => {
 
         <div className="absolute top-1/2 left-[10%] neueHaasGrotesk">
           <div className="text-[#250C50] pb-2 text-lg ">Settings</div>
-          <div className="text-[#6549F6]  text-md pb-2">General</div>
+          <Link to="/general">
+            <div className="text-[#6549F6]  text-md pb-2">General</div>
+          </Link>
           <div className="text-[#6549F6]  text-md pb-2">Layers</div>{" "}
           <div className="text-[#6549F6]  text-md ">Rules</div>
         </div>
-        <div className="flex items-center justify-between mt-40 flex-wrap">
-          <div className="">
+        <div className="flex items-center justify-between flex-wrap">
+          <div className="w-full">
             {/* new */}
-            <div className="flex justify-center">
-              <form
-                id="form-file-upload"
-                onDragEnter={handleDrag}
-                onSubmit={(e) => e.preventDefault()}
-              >
-                <input
-                  accept="image/*"
-                  ref={inputRef}
-                  type="file"
-                  id="input-file-upload"
-                  multiple={true}
-                  onChange={handleChange}
-                />
-                {selectedImage ? (
-                  <label id="label-file-upload" htmlFor="input-file-upload">
-                    <img src={URL.createObjectURL(selectedImage)} alt="Thumb" />
-                  </label>
-                ) : (
-                  <label
-                    id="label-file-upload"
-                    htmlFor="input-file-upload"
-                    className={dragActive ? "drag-active" : ""}
-                  >
-                    <div>
-                      <p>Drag and drop your file here or</p>
-                      <button className="upload-button" onClick={onButtonClick}>
-                        Upload a file
-                      </button>
-                    </div>
-                  </label>
-                )}
-                {dragActive && (
-                  <div
-                    id="drag-file-element"
+            {!isUploading ? (
+              !isUploadFinished && (
+                <div className="flex justify-center">
+                  <form
+                    id="form-file-upload"
+                    className="w-full"
                     onDragEnter={handleDrag}
-                    onDragLeave={handleDrag}
-                    onDragOver={handleDrag}
-                    onDrop={handleDrop}
-                  ></div>
-                )}
-              </form>
-            </div>
-
-            <div id="wave" className="flex flex-col items-center">
-              <div className="font-extrabold text-3xl text-[#D6C3FA]">
-                Uploading...
-              </div>
-              {/* <Wave mask="url(#mask)" fill="#D6C3FA" speed={0.4}>
-                <defs>
-                  <linearGradient id="gradient" gradientTransform="rotate(90)">
-                    <stop offset="0" stopColor="#7B61FF" />
-                    <stop offset="0.7" stopColor="#00DAD9" />
-                  </linearGradient>
-                  <mask id="mask">
-                    <rect
-                      x="0"
-                      y="0"
-                      width="2000"
-                      height="200"
-                      fill="url(#gradient)"
+                    onSubmit={(e) => e.preventDefault()}
+                  >
+                    <input
+                      accept="image/*"
+                      ref={inputRef}
+                      type="file"
+                      id="input-file-upload"
+                      multiple={true}
+                      onChange={handleChange}
                     />
-                  </mask>
-                </defs>
-              </Wave> */}
-            </div>
-
-            <div className="flex justify-center">
-              <div className="border-[#6549F6] border-4 rounded-2xl xl:w-[1000px] flex flex-col items-center justify-center py-10">
-                <form
-                  id="form-file-upload"
-                  onDragEnter={handleDrag}
-                  onSubmit={(e) => e.preventDefault()}
-                >
-                  <div className="">
-                    <div className="flex justify-center items-center mt-3 ">
-                      <i class="fa-solid fa-circle-check fa-4x text-[#87FDDD] zoom-in-zoom-out"></i>
-                    </div>
-                    <div className="font-semibold text-2xl">Success!</div>
-                    <div className="text-[#999999] font-normal text-base neueHaasGrotesk">
-                      Your upload has completed.
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-center gap-3 mt-3 px-3 neueHaasGrotesk">
-                      <div className="flex items-center justify-center border-[#6549F6] text-[#6549F6] border-2 w-24 rounded-md xl:w-36 font-medium text-base h-12 box-border px-4">
-                        <div className="">Upload More</div>
-                      </div>
-
-                      <div
-                        className="flex items-center justify-center border-[#6549F6] text-[#6549F6] border-2 rounded-md xl:w-36 font-medium text-base h-12 gap-2 cursor-pointer"
-                        id="sort-layers"
-                        onClick={handleSort}
+                    {selectedImage ? (
+                      <label id="label-file-upload" htmlFor="input-file-upload">
+                        <img
+                          src={URL.createObjectURL(selectedImage)}
+                          alt="Thumb"
+                        />
+                      </label>
+                    ) : (
+                      <label
+                        id="label-file-upload"
+                        htmlFor="input-file-upload"
+                        className={dragActive ? "drag-active" : ""}
                       >
-                        <div>Sort Layers</div>
                         <div>
-                          <img
-                            src="/images/sort.png"
-                            id="sort-img"
-                            alt=""
-                            className="h-2 w-3"
-                          />
+                          <p>
+                            Drag and drop or browse to choose your <br />
+                            collection folder
+                          </p>
+                          <button
+                            className="upload-button"
+                            onClick={onButtonClick}
+                          >
+                            Choose Files...
+                          </button>
+                        </div>
+                      </label>
+                    )}
+                    {dragActive && (
+                      <div
+                        id="drag-file-element"
+                        onDragEnter={handleDrag}
+                        onDragLeave={handleDrag}
+                        onDragOver={handleDrag}
+                        onDrop={handleDrop}
+                      ></div>
+                    )}
+                  </form>
+                </div>
+              )
+            ) : (
+              <div id="wave" className="flex flex-col items-center relative">
+                <div className="font-extrabold text-[100px] text-[#D6C3FA] absolute top-[50px]">
+                  Uploading...
+                </div>
+                <Wave
+                  className="h-[400px] absolute"
+                  mask="url(#mask)"
+                  fill="url(#gradient)"
+                  amplitude={40}  
+                  speed={0.3}
+                >
+                  <defs>
+                    <linearGradient
+                      id="gradient"
+                      gradientTransform="rotate(90)"
+                    >
+                      <stop offset="0" stopColor="#00DAD9a0" />
+                      <stop offset="1" stopColor="#7B61FFa0" />
+                    </linearGradient>
+                    <mask id="mask">
+                      <rect
+                        x="0"
+                        y="0"
+                        width="2000"
+                        height="400"
+                        fill="url(#gradient)"
+                      />
+                    </mask>
+                  </defs>
+                </Wave>
+                <Wave
+                  className="h-[360px] mt-[40px] absolute"
+                  mask="url(#mask)"
+                  amplitude={40}
+                  fill="url(#gradient2)"
+                  speed={0.3}
+                >
+                  <defs>
+                    <linearGradient
+                      id="gradient2"
+                      gradientTransform="rotate(90)"
+                    >
+                      <stop offset="0" stopColor="#00DAD9cc" />
+                      <stop offset="1" stopColor="#7B61FFcc" />
+                    </linearGradient>
+                    <mask id="mask">
+                      <rect
+                        x="0"
+                        y="0"
+                        width="2000"
+                        height="400"
+                        fill="url(#gradient2)"
+                      />
+                    </mask>
+                  </defs>
+                </Wave>
+              </div>
+            )}
+            {isUploadFinished && (
+              <div className="flex justify-center">
+                <div className="border-[#6549F6] border-4 rounded-2xl w-full flex flex-col items-center justify-center py-10">
+                  <form
+                    id="form-file-upload-more"
+                    onDragEnter={handleDrag}
+                    onSubmit={(e) => e.preventDefault()}
+                  >
+                    <div className="">
+                      <div className="flex justify-center items-center mt-3 ">
+                        <i class="fa-solid fa-circle-check fa-4x text-[#87FDDD] zoom-in-zoom-out"></i>
+                      </div>
+                      <div className="font-semibold text-2xl">Success!</div>
+                      <div className="text-[#999999] font-normal text-base neueHaasGrotesk">
+                        Your upload has completed.
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-center gap-3 mt-3 px-3 neueHaasGrotesk">
+                        <div className="flex items-center justify-center border-[#6549F6] text-[#6549F6] border-2 w-24 rounded-md xl:w-36 font-medium text-base h-12 box-border px-4">
+                          <div className="">Upload More</div>
+                        </div>
+
+                        <div
+                          className="flex items-center justify-center border-[#6549F6] text-[#6549F6] border-2 rounded-md xl:w-36 font-medium text-base h-12 gap-2 cursor-pointer"
+                          id="sort-layers"
+                          onClick={handleSort}
+                        >
+                          <div>Sort Layers</div>
+                          <div>
+                            <img
+                              src="/images/sort.png"
+                              id="sort-img"
+                              alt=""
+                              className="h-2 w-3"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* preview and Attributes-order */}
-                </form>
+                    {/* preview and Attributes-order */}
+                  </form>
 
-                <div id="showOnClick" className="show">
-                  <div id="showHidden" className="hidden">
-                    <div className="grid grid-cols-1 md:grid-cols-2 place-items-center md:place-items-start gap-20 mt-20 neueHaasGrotesk">
-                      {/* col-1 */}
-                      <div className="flex flex-col gap-3">
-                        <div className="text-2xl font-bold">Preview</div>
-                        <div>
-                          <img
-                            src="/images/mrmonkey.png"
-                            alt=""
-                            className="h-64 w-64"
-                          />
-                        </div>
-                        <div className="bg-[#6549F6] rounded-lg text-white flex items-center justify-center font-medium text-lg py-3">
-                          <div>
-                            Shuffle Order
-                            <i className="fa-solid fa-shuffle pl-3 "></i>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* col-2 */}
-                      <div>
+                  <div id="showOnClick" className="show">
+                    <div id="showHidden" className="hidden">
+                      <div className="grid grid-cols-1 md:grid-cols-2 place-items-center md:place-items-start gap-20 mt-20 neueHaasGrotesk">
+                        {/* col-1 */}
                         <div className="flex flex-col gap-3">
-                          <div className="text-2xl font-bold">
-                            Attributes Order
+                          <div className="text-2xl font-bold">Preview</div>
+                          <div>
+                            <img
+                              src="/images/monkey.png"
+                              alt=""
+                              className="preview-thumb h-64 w-64"
+                            />
                           </div>
-                          {order.map((i) => (
-                            <div
-                              className="flex items-center justify-between border-[#6549F6] text-[#6549F6] border-2 rounded-md font-medium text-base h-12 gap-4 px-4 w-64 border-box"
-                              key={i.id}
-                            >
-                              <div>{i.name} </div>
-                              <div>
-                                <img
-                                  src="/images/sort.png"
-                                  alt=""
-                                  className="h-2 w-4"
-                                />
-                              </div>
+                          <div className="bg-[#6549F6] rounded-lg text-white flex items-center justify-center font-medium text-lg py-3">
+                            <div>
+                              Shuffle Order
+                              <i className="fa-solid fa-shuffle pl-3 "></i>
                             </div>
-                          ))}
+                          </div>
+                        </div>
+
+                        {/* col-2 */}
+                        <div>
+                          <div className="flex flex-col gap-3">
+                            <div className="text-2xl font-bold">
+                              Attributes Order
+                            </div>
+                            {order.map((i) => (
+                              <div
+                                className="flex items-center justify-between border-[#6549F6] text-[#6549F6] border-2 rounded-md font-medium text-base h-12 gap-4 px-4 w-64 border-box"
+                                key={i.id}
+                              >
+                                <div>{i.name} </div>
+                                <div>
+                                  <img
+                                    src="/images/sort.png"
+                                    alt=""
+                                    className="h-2 w-4"
+                                  />
+                                </div>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
+        <StayLoop />
       </div>
     </>
   );

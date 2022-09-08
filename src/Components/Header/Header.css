@@ -69,3 +69,11 @@
     transform: scale(1, 1);
   }
 }
+
+.header-container {
+  box-shadow: 0 20px 20px rgba(37, 12, 80, 0.8);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}

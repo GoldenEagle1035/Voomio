@@ -6,21 +6,25 @@ module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
   module: {
     rules: [
-    
+
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],},
+        use: ['babel-loader'],
+      },
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
-    
-    
+
+
     ],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+    fallback: {
+      "buffer": require.resolve("buffer")
+    }
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -30,15 +34,17 @@ module.exports = {
   experiments: {
     syncWebAssembly: true,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin(), 
-],
+  plugins: [
+    
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+    }),
+  ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
     hot: true,
     historyApiFallback: true,
-    publicPath: '/', 
-  
-    
+    publicPath: '/',
   },
   eslint: {
     enable: false

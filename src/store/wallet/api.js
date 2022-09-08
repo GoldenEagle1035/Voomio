@@ -51,17 +51,21 @@ export const availableWallets = (callback) => async (dispatch) => {
 };
 
 export const connectWallet = (provider, callback) => async (dispatch) => {
+
+  console.log("api_connectWallet_process.env.REACT_APP_CARDANO_NETWORK_ID:::", process.env.REACT_APP_CARDANO_NETWORK_ID);
+
   try {
     dispatch(setWalletLoading(WALLET_STATE.CONNECTING));
-
     if (await Wallet.enable(provider)) {
       const usedNetworkId = parseInt(process.env.REACT_APP_CARDANO_NETWORK_ID);
       const walletNetworkId = await Wallet.getNetworkId();
-
       if (usedNetworkId === walletNetworkId) {
+        console.log("api_connectWallet_await enable_usedNetworkId");
+        console.log("api_connectWallet_Wallet:::", Wallet);
         const usedAddresses = await Wallet.getUsedAddresses();
+        console.log("api_connectWallet_usedAddresses:::", usedAddresses);
         const walletAddress = await getWalletAddress(usedAddresses);
-
+        console.log("api_connectWallet_walletAddress:::", walletAddress);
         const connectedWallet = {
           provider: {
             network: walletNetworkId,
@@ -69,7 +73,7 @@ export const connectWallet = (provider, callback) => async (dispatch) => {
           },
           data: await getWallet(walletAddress),
         };
-
+        console.log("api_connectWallet_walletConnected___");
         dispatch(walletConnected(connectedWallet));
         callback({
           success: true,

@@ -1,5 +1,10 @@
 .uploadBackground {
-   background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), linear-gradient(98.79deg, #9B53E0 20.34%, #8551E6 77.89%);
+   background: linear-gradient(
+         0deg,
+         rgba(255, 255, 255, 0.9),
+         rgba(255, 255, 255, 0.9)
+      ),
+      linear-gradient(98.79deg, #9b53e0 20.34%, #8551e6 77.89%);
 }
 
 label {

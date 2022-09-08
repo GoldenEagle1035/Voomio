@@ -156,6 +156,7 @@
   width: 100%;
   font-weight: 600;
   border: 1px solid rgb(229, 232, 235);
+  border-radius: 0.5rem;
   color: rgb(53, 56, 64);
   text-align: left;
 }
@@ -529,4 +530,39 @@
   100% {
     -webkit-transform: translateY(0%);
   }
+}
+
+.header-margin {
+  margin-top: 70px;
+}
+
+/* button animation */
+.btn-hover-anim {
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+}
+
+.btn-hover-anim:hover {
+  scale: 110%;
+}
+
+.item-hover-anim {
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+}
+
+.item-hover-anim:hover {
+  background: white;
+  box-shadow: 5.26833px 5.26833px 13.1708px rgba(0, 0, 0, 0.2);
+  scale: 108%;
+}
+
+.item-blur-anim img.thumb {
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+}
+
+.item-blur-anim:hover img.thumb {
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
 }

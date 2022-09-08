@@ -5,7 +5,17 @@ label {
 
 /* upload */
 
-#form-file-upload {
+.upload-nft-container #form-file-upload {
+  height: 400px;
+  margin-bottom: 30px;
+  max-width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.upload-nft-container #form-file-upload-more {
+  height: 280px;
+  margin-bottom: 30px;
   max-width: 100%;
   text-align: center;
   position: relative;
@@ -15,33 +25,48 @@ label {
   display: none;
 }
 
-#label-file-upload {
+.upload-nft-container #label-file-upload {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-width: 2px;
+  border-width: 4px;
   border-radius: 1rem;
   border-style: dashed;
   border-color: #cbd5e1;
   background-color: #f8fafc;
 }
 
-#label-file-upload.drag-active {
+.upload-nft-container #label-file-upload.drag-active {
   background-color: #ffffff;
 }
 
-.upload-button {
-  cursor: pointer;
-  padding: 0.25rem;
-  font-size: 1rem;
-  border: none;
-  font-family: "Oswald", sans-serif;
-  background-color: transparent;
+#label-file-upload img {
+  width: auto;
 }
 
-.upload-button:hover {
+.upload-nft-container .upload-button {
+  background-color: #7b61ff;
+  border-radius: 10rem;
+  color: white;
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.upload-nft-container .upload-button:hover {
   text-decoration-line: underline;
+}
+
+.upload-nft-container #wave {
+  border-width: 4px;
+  border-radius: 1rem;
+  border-color: #6549f6;
+  height: 400px;
+  overflow: hidden;
+  padding-top: 5rem;
 }
 
 #drag-file-element {
@@ -54,7 +79,6 @@ label {
   bottom: 0px;
   left: 0px;
 }
-
 
 .show {
   display: flex;
@@ -80,8 +104,6 @@ label {
     transform: scale(0.5, 0.5);
   }
 
- 
-
   100% {
     transform: scale(1, 1);
   }
@@ -96,4 +118,8 @@ label {
 
 .neueHaasGrotesk {
   font-family: myFirstFont;
+}
+
+.preview-thumb {
+  border-radius: 0.5rem;
 }

@@ -1,6 +1,7 @@
 // eslint-disable-next-line
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import Aos from "aos";
 import Carousel from "react-elastic-carousel";
 import onePlaceRight1 from "../../Assets/VoomioImages/one-place-left.svg";
@@ -289,7 +290,7 @@ const Home = () => {
   return (
     <>
       {/* Oneplace bloges  start*/}
-      <div className="homebackgroundimage md:py-20">
+      <div className="homebackgroundimage md:py-20 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-3  md:py-20">
           <div className="hidden lg:flex relative justify-start">
             {" "}
@@ -314,16 +315,20 @@ const Home = () => {
               sure you’re going to love it here.
             </p>
             <div className="flex flex-col items-center md:flex-row gap-10">
-              <button class="one-place-button text-white  py-2.5 px-14 rounded-full 2xl:text-2xl">
-                Explore
-              </button>
-              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0">
-                <button
-                  type="button"
-                  className="hometitle px-12 py-2 font-bold 2xl:text-2xl "
-                >
-                  Create
+              <Link to="/explore">
+                <button class="btn-hover-anim one-place-button text-white  py-2.5 px-14 rounded-full 2xl:text-2xl">
+                  Explore
                 </button>
+              </Link>
+              <div className="btn-hover-anim homebuttonborder rounded-3xl text-center mt-3 md:mt-0">
+                <Link to="/general">
+                  <button
+                    type="button"
+                    className="hometitle px-12 py-2 font-bold 2xl:text-2xl "
+                  >
+                    Create
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -367,7 +372,7 @@ const Home = () => {
               className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4"
               key={index}
             >
-              <div className=" relative network-box mt-16">
+              <div className="item-hover-anim relative network-box mt-16">
                 <img
                   alt="John Doe"
                   src={i.mainimage}
@@ -398,7 +403,7 @@ const Home = () => {
             </div>
           ))}
           <button
-            className="buttongradient my-10 text-white font-bold py-1 px-12 rounded-full"
+            className="btn-hover-anim buttongradient my-10 text-white font-bold py-1 px-12 rounded-full"
             onClick={() => navigate("/aggregator")}
           >
             Load more
@@ -422,7 +427,7 @@ const Home = () => {
             <Carousel breakPoints={breakPoints}>
               {secondVideo.map((i, index) => (
                 <div
-                  className="max-w-sm rounded overflow-hidden p-2"
+                  className="item-hover-anim max-w-sm rounded overflow-hidden p-2"
                   key={index}
                 >
                   <img
@@ -457,7 +462,10 @@ const Home = () => {
           >
             <Carousel breakPoints={breakPoints}>
               {topCreatorsItems.map((i, index) => (
-                <div className="rounded-xl topcreators-box" key={index}>
+                <div
+                  className="item-hover-anim rounded-xl topcreators-box"
+                  key={index}
+                >
                   <div className="rounded-lg  bg-[#e9ae65] ">
                     <div className="px-10 py-8">
                       <div className="flex justify-center">
@@ -503,7 +511,7 @@ const Home = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex space-x-2 justify-center my-4">
+                      <div className="btn-hover-anim flex space-x-2 justify-center my-4">
                         <button
                           type="button"
                           className=" px-14 py-2 follow text-white rounded-full  text-base font-bold"
@@ -511,7 +519,7 @@ const Home = () => {
                           <i className="fa-solid fa-plus mr-2"></i>Follow
                         </button>
                       </div>
-                      <div className="flex  space-x-2 justify-center">
+                      <div className="btn-hover-anim flex  space-x-2 justify-center">
                         <button
                           type="button"
                           className="topcreatorsfollowing px-9 py-2 bg-[#DBDAE2] text-[#8551E6] rounded-full mb-8"
@@ -808,7 +816,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-2">
             {topnft.map((i, index) => (
               <div
-                className="sc-1pie21o-0 elyzfO sc-1xf18x6-0 sc-1twd32i-0 sc-1idymv7-0 gyFWjU kKpYwv fNIWSU TopCollections--item"
+                className="item-hover-anim sc-1pie21o-0 elyzfO sc-1xf18x6-0 sc-1twd32i-0 sc-1idymv7-0 gyFWjU kKpYwv fNIWSU TopCollections--item"
                 key={index}
               >
                 <div className="sc-1xf18x6-0 sc-1twd32i-0 sc-1wwz3hp-0 sc-b4hiel-0 sc-cjf6mn-0 ttmcH kKpYwv kuGBEl iVtKaT euUQqP">
@@ -906,7 +914,7 @@ const Home = () => {
               </div>
             ))}
           </div>
-          <div className="pb-16 mt-10">
+          <div className="btn-hover-anim pb-16 mt-10">
             <button className="flex container mx-auto w-fit justify-center buttongradient m-15 text-white font-bold py-1 px-12 rounded-full">
               Load more
             </button>
@@ -916,9 +924,9 @@ const Home = () => {
       {/* Top NFT  bloges  end*/}
 
       {/* Gassless Minting bloges start*/}
-      <div className=" md:py-20 overflow-x-auto">
+      <div className=" md:py-20 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-3 p-2 md:p-0">
-          <div className="hidden lg:block relative">
+          <div className="hidden lg:block relative h-[1200px]">
             {" "}
             <img
               src={onePlaceleft2}
@@ -941,7 +949,7 @@ const Home = () => {
               className="absolute  w-80 one-place-slide-up-animation top-[700px] -mx-14"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col mt-[100px]">
             <div>
               {" "}
               <h1 className="font-bold hometitle text-5xl text-center xl:text-8xl text-white mb-4  ">
@@ -949,7 +957,7 @@ const Home = () => {
               </h1>
             </div>
             <div>
-              <div className="flex flex-col items-center bg-white   md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+              <div className="flex flex-col items-center bg-white  mt-[50px]  md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img
                   className=" w-36 h-36  rounded-t-lg md:h-auto  md:rounded-none md:rounded-l-lg"
                   src="/images/icon (5).png"
@@ -965,7 +973,7 @@ const Home = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center bg-white   md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+              <div className="flex flex-col items-center bg-white mt-[50px]  md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img
                   className=" w-36 h-36  rounded-t-lg md:h-auto  md:rounded-none md:rounded-l-lg"
                   src="/images/icon (4).png"
@@ -981,7 +989,7 @@ const Home = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center bg-white   md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+              <div className="flex flex-col items-center bg-white mt-[50px] md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img
                   className=" w-36 h-36  rounded-t-lg md:h-auto  md:rounded-none md:rounded-l-lg"
                   src="/images/icon (3).png"
@@ -998,22 +1006,45 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 ">
-              <button className="buttonborder  text-white font-bold py-2  px-12 2xl:text-2xl">
-                Explore
-              </button>
-              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0">
-                <button
-                  type="button"
-                  className="hometitle px-12  py-2 font-bold 2xl:text-2xl "
-                >
-                  Create
+            <div className="flex flex-col justify-center lg:justify-center md:flex-row my-12 mt-[100px] md:space-x-4 ">
+              <Link to="/explore">
+                <button className="btn-hover-anim buttonborder  text-white font-bold py-2  px-12 2xl:text-2xl">
+                  Explore
                 </button>
+              </Link>
+              <div className="btn-hover-anim homebuttonborder rounded-3xl text-center mt-3 md:mt-0">
+                <Link to="/general">
+                  <button
+                    type="button"
+                    className="hometitle px-12  py-2 font-bold 2xl:text-2xl "
+                  >
+                    Create
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
-          <div className="hidden lg:flex justify-end">
-            <img src="/images/Group 548 (1).png" alt="rectangle" />
+          <div className="relative hidden lg:flex justify-end">
+            <img
+              src={onePlaceRight1}
+              alt="dronze"
+              className="one-place-slide-animation -mx-[100px] absolute z-50"
+            />
+            <img
+              src={onePlaceRight2}
+              alt="crypto"
+              className="absolute top-60 -mx-[30px] one-place-slide-up-animation z-10"
+            />
+            <img
+              src={onePlaceleft2}
+              alt="dronze"
+              className=" w-160 one-place-slide-up-animation -mx-[220px] top-[480px] absolute"
+            />
+            <img
+              src={onePlaceleft1}
+              alt="crypto"
+              className="absolute  w-80 one-place-slide-animation top-[850px] -mx-[100px] z-50"
+            />
           </div>
         </div>
       </div>

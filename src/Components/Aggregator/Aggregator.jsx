@@ -131,7 +131,7 @@ const Aggregator = () => {
     <>
       {/* 1st element */}
       <div>
-        <div className="relative pt-14">
+        <div className="relative">
           <img
             src="/images/yachet-club.png"
             alt=""
@@ -235,7 +235,7 @@ const Aggregator = () => {
               <button
                 type="button"
                 onClick={cardClickClose}
-                className="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-[#6549F6] hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 "
+                className="btn-hover-anim inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-[#6549F6] hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 "
               >
                 <svg
                   className="w-6"
@@ -254,7 +254,7 @@ const Aggregator = () => {
               <button
                 type="button"
                 onClick={cardClick}
-                className="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-[#6549F6] hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 "
+                className="btn-hover-anim inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-[#6549F6] hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 "
               >
                 <svg
                   width="31"
@@ -359,6 +359,7 @@ const Aggregator = () => {
             <svg
               width="216"
               height="54"
+              className="btn-hover-anim"
               viewBox="0 0 216 54"
               fill="none"
               onClick={octopussPopup}
@@ -410,11 +411,11 @@ const Aggregator = () => {
         >
           {aggrigatorItem.map((i) => (
             <div
-              className="max-w-xs max-h-full bg-white rounded-lg border border-gray-200 shadow-md"
+              className="item-blur-anim max-w-xs max-h-full bg-white rounded-lg border border-gray-200 shadow-md"
               key={i.id}
             >
               <div className="relative">
-                <img className="max-h-80 " src={i.image} alt="" />
+                <img className="thumb max-h-80 " src={i.image} alt="" />
                 <div>
                   <img
                     className=" h-12 absolute top-0 border px-3 py-2 bg-white rounded-md"
@@ -504,14 +505,14 @@ const Aggregator = () => {
                   <p className="font-normal text-md text-[#999999] pb-5">
                     Please connect your wallet.
                   </p>
-                  <button className="px-7 popuptittle py-2 rounded-3xl  text-xl bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white">
+                  <button className="btn-hover-anim px-7 popuptittle py-2 rounded-3xl  text-xl bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white">
                     Connect Wallet
                   </button>
                 </div>
               </div>
             </div>
-            <button className=" rounded-3xl bg-[#f4eeff]">
-              <p className="py-3 px-16  text-base	 font-normal text-[#d6c3fa]   ">
+            <button className="btn-hover-anim rounded-3xl bg-[#f4eeff]">
+              <p className="py-3 px-16  text-base	 font-normal text-[#d6c3fa]">
                 Review transaction
               </p>
             </button>

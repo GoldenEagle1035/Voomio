@@ -1,4 +1,5 @@
 import Cardano from "../cardano/serialization-lib";
+import { Buffer } from "buffer";
 
 export const fromAscii = (hex) => Buffer.from(hex).toString("hex");
 

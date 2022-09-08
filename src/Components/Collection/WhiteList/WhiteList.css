@@ -1,0 +1,37 @@
+.whitelist-container .section-title {
+  color: #222;
+  font-weight: 700;
+  font-size: 44px;
+}
+
+.whitelist-container .collection-thumb {
+  border: 3px solid #3c3c3b;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.whitelist-container .increase {
+  border-radius: 100px;
+  background: rgba(0, 168, 37, 0.1);
+  color: #00a825;
+  font-weight: 700;
+  padding: 5px 20px;
+}
+
+.whitelist-container .decrease {
+  border-radius: 100px;
+  background: rgba(255, 0, 0, 0.1);
+  color: red;
+  font-weight: 700;
+  padding: 5px 20px;
+}
+
+.whitelist-container tbody tr {
+  font-size: 22px;
+  height: 84px;
+}
+
+.whitelist-container tbody tr:nth-child(2n + 1) {
+  background: #f0f0f0;
+}
