@@ -16,7 +16,7 @@ import WhiteList from "./Components/Collection/WhiteList/WhiteList";
 import Activity from "./Components/Collection/Activity/Activity";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
-
+import Manage from "Components/UploadNft/Manage";
 import { load_collection } from "./store/collection/api";
 
 function App() {
@@ -58,6 +58,7 @@ function App() {
           <Route exact path="/explore" element={<Explore />} />
           <Route exact path="/whitelist" element={<WhiteList />} />
           <Route exact path="/activity" element={<Activity />} />
+          <Route exact path="/manage" element={<Manage />} />
         </Routes>
       </div>
       <Footer />

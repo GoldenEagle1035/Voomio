@@ -1,9 +1,13 @@
 // eslint-disable-next-line
 import React from "react";
+import Signup from "Components/Signup/Signup";
 import "./Footer.css";
+
 const Footer = () => {
   return (
     <>
+    <Signup />
+    
       <div className="container mx-auto">
         <footer className="py-12 xl:py-24 dark:bg-gray-800">
           <div className="px-4 mx-auto w-full max-w-8xl">

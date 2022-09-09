@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import NftDetails from "./NftDetails";
-
+import Topbar from "./Topbar";
 const Preview = () => {
    const order = [
       {
@@ -143,7 +143,7 @@ const Preview = () => {
       <>
          <div className="">
             <div className="container max-w-7xl mx-auto px-8 md:px-20 pt-20 min-h-screen">
-               <div className=" text-5xl font-bold text-[#222222]">
+               {/* <div className=" text-5xl font-bold text-[#222222]">
                   NFT Generator
                </div>
                <div className="flex items-center justify-between">
@@ -196,8 +196,8 @@ const Preview = () => {
                         </div>
                      </Link>
                   </div>
-               </div>
-
+               </div> */}
+               <Topbar />
                <div className="flex gap-8 ml-[132px]">
                   <div></div>
                   <div className="flex gap-10 font-medium text-xl">

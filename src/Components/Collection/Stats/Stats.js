@@ -24,7 +24,7 @@ const pasthours = [
 
 const CollectionStats = () => {
     return (
-        <div className="stats-container flex justify-between mx-auto container mt-40 flex-wrap">
+        <div className="stats-container flex justify-between mx-auto container mt-40 flex-wrap plr-20">
             <div className="w-full">
                 <h3 className="section-title ml-20 mb-10">Collection Stats</h3>
                 <Tabs>

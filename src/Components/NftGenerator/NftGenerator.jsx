@@ -256,7 +256,7 @@ const NftGenerator = () => {
                 </Link>
               </div>
             </div>
-            <StayLoop />
+            {/* <StayLoop /> */}
           </div>
         )}
       </div>

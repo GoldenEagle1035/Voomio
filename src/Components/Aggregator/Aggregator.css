@@ -135,3 +135,6 @@ input[type="text"] {
   height: 4px;
   background: linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
 }
+.plr-20{
+  padding: 0 5rem;
+}

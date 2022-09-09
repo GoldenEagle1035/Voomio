@@ -125,3 +125,6 @@
 .stats-container tbody tr:nth-child(2n + 1) {
   background: #f0f0f0;
 }
+.plr-20{
+  padding: 0 5rem;
+}

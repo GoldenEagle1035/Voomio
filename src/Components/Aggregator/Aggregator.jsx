@@ -145,7 +145,7 @@ const Aggregator = () => {
         </div>
       </div>
       {/* 2nd element */}
-      <div className="flex justify-between mx-auto container mt-40 flex-wrap">
+      <div className="flex justify-between mx-auto container mt-40 flex-wrap  plr-20">
         <div className="flex items-center gap-1">
           <h1 className="text-4xl font-bold">Mutant Ape Yatch Club</h1>
           <img
@@ -170,7 +170,7 @@ const Aggregator = () => {
         </div>
       </div>
       {/* 3rd element */}
-      <div className="mx-auto container flex justify-start my-10">
+      <div className="mx-auto container flex justify-start my-10 plr-20">
         <p className="text-base lg:w-5/12 ">
           The MUTANT APE YACHT CLUB is a collection of up to 20,000 Mutant Apes
           that can only be created by exposing an existing Bored Ape to a vial
@@ -178,7 +178,7 @@ const Aggregator = () => {
         </p>
       </div>
       {/* 4th element */}
-      <div className="flex md:justify-start justify-center container mx-auto gap-10 flex-wrap">
+      <div className="flex md:justify-start justify-center container mx-auto gap-10 flex-wrap plr-20">
         <div>
           <p className="itemcount text-base">items</p>
           <h1 className="text-xl font-bold">10.0K</h1>
@@ -201,7 +201,7 @@ const Aggregator = () => {
         </div>
       </div>
       {/* 5th element */}
-       <div className="flex justify-between container items-center mx-auto my-10 flex-wrap ">
+       <div className="flex justify-between container items-center mx-auto my-10 flex-wrap plr-20">
         <div className="flex items-center gap-10">
           <img src="/images/AdjustmentsOutline.svg" alt="" />
           <div className="flex relative dropdownborder w-96 rounded-3xl">
@@ -400,7 +400,7 @@ const Aggregator = () => {
       </div> 
 
       {/* nftCards */}
-      <div className="container mx-auto my-5">
+      <div className="container mx-auto my-5 plr-20">
         {" "}
         <div
           className={`${

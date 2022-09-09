@@ -24,7 +24,7 @@ const pasthours = [
 
 const WhiteList = () => {
     return (
-        <div className="whitelist-container flex justify-between mx-auto container mt-40 flex-wrap">
+        <div className="whitelist-container flex justify-between mx-auto container mt-40 flex-wrap plr-20">
             <div className="w-full">
                 <h3 className="section-title ml-20 mb-10">My WhiteList</h3>
                 <div className="mt-[50px]">

@@ -16,7 +16,7 @@ import ethereum from "../../Assets/Images/ethereum.png";
 import verified from "../../Assets/Images/verified.png";
 import "./Home.css";
 import DropDown from "../DropDown/DropDown";
-
+import Alpha from "./Alpha";
 function getWindowSize() {
   const { innerWidth } = window;
   return innerWidth;
@@ -109,44 +109,7 @@ const Home = () => {
     },
   ];
 
-  // second videocards
-  const secondVideo = [
-    {
-      id: "1",
-      videoimage: "/images/alpha.png",
-      videotitle: "These upcoming NFTS will 10x!",
-      videotext: "CryptoGuruTV",
-      videoview: "1M views - 8 hours ago",
-    },
-    {
-      id: "2",
-      videoimage: "/images/nftstobuy.png",
-      videotitle: "These upcoming NFTS will 10x!",
-      videotext: "CryptoGuruTV",
-      videoview: "1M views - 8 hours ago",
-    },
-    {
-      id: "3",
-      videoimage: "/images/justinebiber.png",
-      videotitle: "These upcoming NFTS will 10x!",
-      videotext: "CryptoGuruTV",
-      videoview: "1M views - 8 hours ago",
-    },
-    {
-      id: "4",
-      videoimage: "/images/nftstobuy.png",
-      videotitle: "These upcoming NFTS will 10x!",
-      videotext: "CryptoGuruTV",
-      videoview: "1M views - 8 hours ago",
-    },
-    {
-      id: "5",
-      videoimage: "/images/justinebiber.png",
-      videotitle: "These upcoming NFTS will 10x!",
-      videotext: "CryptoGuruTV",
-      videoview: "1M views - 8 hours ago",
-    },
-  ];
+  
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -316,7 +279,7 @@ const Home = () => {
             </p>
             <div className="flex flex-col items-center md:flex-row gap-10">
               <Link to="/explore">
-                <button class="btn-hover-anim one-place-button text-white  py-2.5 px-14 rounded-full 2xl:text-2xl">
+                <button className="btn-hover-anim one-place-button text-white  py-2.5 px-14 rounded-full 2xl:text-2xl">
                   Explore
                 </button>
               </Link>
@@ -412,41 +375,7 @@ const Home = () => {
       </div>
       {/* Trending bloges end*/}
 
-      {/* Alpha bloges start*/}
-      <div className=" md:p-20">
-        <div
-          className="container max-w-7xl mx-auto px-4 mt-10"
-          style={{ cursor: "auto" }}
-        >
-          <div className="alpha-title mb-16 px-9">Alpha</div>
-          <div
-            data-aos="fade-left"
-            data-aos-easing="linear"
-            data-aos-duration="1000"
-          >
-            <Carousel breakPoints={breakPoints}>
-              {secondVideo.map((i, index) => (
-                <div
-                  className="item-hover-anim max-w-sm rounded overflow-hidden p-2"
-                  key={index}
-                >
-                  <img
-                    className="w-full"
-                    src={i.videoimage}
-                    alt="Sunset in the mountains"
-                  />
-                  <div className="px-6 py-4">
-                    <div className="alpha-video-title">{i.videotitle}</div>
-                    <p className="alpha-video-text">{i.videotext}</p>
-                    <p className="alpha-video-text">{i.videoview}</p>
-                  </div>
-                </div>
-              ))}
-            </Carousel>
-          </div>
-        </div>
-      </div>
-      {/* Alpha bloges end*/}
+     
 
       {/* Top Creators bloges start*/}
       <div className=" md:p-20">
@@ -1049,6 +978,8 @@ const Home = () => {
         </div>
       </div>
       {/* Gassless Minting bloges end*/}
+
+      <Alpha />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
-import "./Generate.css";
 
+import "./Generate.css";
+import Topbar from "./Topbar";
 const Generate = () => {
     // upload image
     const [selectedImage, setSelectedImage] = useState();
@@ -138,56 +138,7 @@ const Generate = () => {
         <>
             <div className="">
                 <div className="container max-w-7xl mx-auto px-8 md:px-20 pt-20 min-h-screen">
-                    <div className=" text-5xl font-bold text-[#222222]">
-                        NFT Generator
-                    </div>
-                    <div className="flex items-center justify-between">
-                        <div>
-                            <div className="text-[#250C50] pt-6 text-lg itemcount">
-                                Current NFT
-                            </div>
-                            <div className="text-[#6549F6]  text-lg pb-16 itemcount">
-                                Single-item
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-10">
-                            <Link to="/uploadnft">
-                                <div className="opacity-50 flex flex-col justify-center items-center">
-                                    <img src="/images/upload.svg" alt="" />
-                                    <p className="text-[#6549F6]  text-lg  itemcount ">
-                                        Upload
-                                    </p>
-                                </div>
-                            </Link>
-                            <Link to="/preview">
-                                <div className="flex flex-col justify-center items-center opacity-50">
-                                    <img src="/images/EyeOutline.svg" alt="" />
-                                    <p className="text-[#6549F6]  text-lg  itemcount ">
-                                        Preview
-                                    </p>
-                                </div>
-                            </Link>
-                            <div className="flex flex-col items-center opacity-50">
-                                <img src="/images/CogOutline.svg" alt="" />
-                                <p className="text-[#6549F6]  text-lg itemcount ">
-                                    Manage
-                                </p>
-                            </div>
-                            <Link to="/nftupload">
-                                <div className="flex flex-col items-center opacity-100">
-                                    <img
-                                        src="/images/star.png"
-                                        alt=""
-                                        className=""
-                                    />
-                                    <p className="text-[#6549F6]  text-lg  itemcount ">
-                                        Generate
-                                    </p>
-                                    <img src="/images/path.svg" alt="" />
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
+                    <Topbar />
 
                     <div className="flex gap-8 ml-[132px]">
                         <div></div>

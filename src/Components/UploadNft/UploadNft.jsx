@@ -3,7 +3,7 @@ import Wave from "react-wavify";
 import "./UploadNft.css";
 import { Link, useNavigate } from "react-router-dom";
 import StayLoop from "./StayLoop";
-
+import Topbar from "./Topbar";
 const UploadNft = () => {
   // upload image
   const [selectedImage, setSelectedImage] = useState();
@@ -115,13 +115,14 @@ const UploadNft = () => {
 
   return (
     <>
+   
+
       <div className="upload-nft-container container max-w-7xl mx-auto px-8 md:px-20 pt-20 min-h-screen">
-        <div className=" text-5xl font-bold text-[#222222]">NFT Generator</div>
+      
+      <Topbar />
+      
         <div className="flex items-center justify-between neueHaasGrotesk">
-          <div>
-            <div className="text-[#250C50] pt-6 text-lg ">Current NFT</div>
-            <div className="text-[#6549F6]  text-lg pb-16 ">Single-item</div>
-          </div>
+         
           <div className="flex items-center gap-10">
             <div className="flex flex-col justify-center items-center">
               <img src="/images/upload.svg" alt="" />
@@ -138,15 +139,25 @@ const UploadNft = () => {
             </div>
           </div>
         </div>
-
-        <div className="absolute top-1/2 left-[10%] neueHaasGrotesk">
-          <div className="text-[#250C50] pb-2 text-lg ">Settings</div>
-          <Link to="/general">
+        <div className="flex mt-20 gap-8">
+                        <div className="flex gap-24"> <div className="flex justify-between  flex-wrap">
+                                <div>
+                                    <div className="text-[#250C50] pb-2 text-lg itemcount">
+                                        Settings
+                                    </div>
+                                    <Link to="/general">
             <div className="text-[#6549F6]  text-md pb-2">General</div>
           </Link>
-          <div className="text-[#6549F6]  text-md pb-2">Layers</div>{" "}
-          <div className="text-[#6549F6]  text-md ">Rules</div>
-        </div>
+                                    <div className="text-[#6549F6]  text-md pb-2 itemcount">
+                                        Layers
+                                    </div>
+                                    <div className="text-[#6549F6]  text-md itemcount">
+                                        Rules
+                                    </div>
+                                </div>
+                            </div></div>
+                        <div className="ml-14" style={{width : "100%"}}>
+       
         <div className="flex items-center justify-between flex-wrap">
           <div className="w-full">
             {/* new */}
@@ -362,7 +373,8 @@ const UploadNft = () => {
             )}
           </div>
         </div>
-        <StayLoop />
+        </div>
+                        </div>
       </div>
     </>
   );
